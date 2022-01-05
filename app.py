@@ -102,14 +102,57 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
     return bank_data_filtered
 
 
+def save_csv(qualifying_loans, path):
+    """Save the qualifying loans to a CSV file.
+
+    Args:
+        Qualifying_loans (list): A list of qualifying loans.
+        path (str): The path to save the CSV file to.
+    """
+
+    with open(path, 'w') as f:
+        f.write(f"Lender, Max Loan, Max LTV, Max DTI, Min Credit, Interest Rate\n")
+        for loan in qualifying_loans:
+            f.write(f"{loan[0]},{loan[1]},{loan[2]},{loan[3]},{loan[4]}, {loan[5]}\n")
+    f.close()
+
 def save_qualifying_loans(qualifying_loans):
     """Saves the qualifying loans to a CSV file.
+    Given that I’m using the loan qualifier CLI, when I run the qualifier, then the tool should prompt the user to save the results as a CSV file.
 
+    Given that no qualifying loans exist, when prompting a user to save a file, then the program should notify the user and exit.
+
+    Given that I have a list of qualifying loans, when I’m prompted to save the results, then I should be able to opt out of saving the file.
+
+    Given that I have a list of qualifying loans, when I choose to save the loans, the tool should prompt for a file path to save the file.
+
+    Given that I’m using the loan qualifier CLI, when I choose to save the loans, then the tool should save the results as a CSV file.
     Args:
         qualifying_loans (list of lists): The qualifying bank loans.
     """
     # @TODO: Complete the usability dialog for savings the CSV Files.
-    # YOUR CODE HERE!
+    if qualifying_loans is None:
+        sys.exit(f"Oops! No qualifying loans found. Exiting.")
+    save = questionary.confirm("Would you like to save the qualifying loans?").ask()
+    if save: 
+        save_location = questionary.text("Where would you like to save the csv file of your qualifying loans?").ask()
+        saved_location = Path(save_location)
+        if not saved_location.exists():
+            save = questionary.confirm(f"Oops! Can't find this path: {save_location}, would you like to try again?").ask()
+            if save:
+                save_qualifying_loans(qualifying_loans)
+            else:
+                sys.exit(f"Exiting.")
+        else:
+            save_location = save_location + "results.csv"
+            save_location = Path(save_location)
+            save_csv(qualifying_loans, save_location)
+            print(f"Qualifying loans saved to {save_location}")
+    else:
+        sys.exit(f"Exiting.")
+
+        
+
 
 
 def run():

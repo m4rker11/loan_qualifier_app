@@ -1,33 +1,44 @@
 # Project Title
 
-Just after the title, introduce your project by describing attractively what the project is about and what is the main problem that inspires you to create this project or what is the main contribution for the potential user of your project.
+Loan Qualifier APP
+
+Have you ever tried applying for a loan and were instead bombarded by so many available options that it would take hours if not days to sift through all of them and find good ones? What you are about to use will cut the amount of time exponentially, and the more options you have, the higher that exponent.
+By filtering through all available loans on the market, this software is able to present you with the best options depedning on your specific circumstances.
 
 ---
 
 ## Technologies
 
-Describe the technologies required to use your project such as programming languages, libraries, frameworks, and operating systems. Be sure to include the specific versions of any critical dependencies that you have used in the stable version of your project.
+This project uses python along with questionary and fire libraries to have a simple client interface, as well as csv in order to input and output data.
 
 ---
 
 ## Installation Guide
-
-In this section, you should include detailed installation notes containing code blocks and screenshots.
+In order to use this tech you need to run a few commands from LOAN_QUALIFIER_APP foulder
+1. pip install -r requirements.txt
+2. python app.py 
+and then enjoy results.
 
 ---
 
 ## Usage
 
-This section should include screenshots, code blocks, or animations explaining how to use your project.
+Once you run the app all you need to do is follow the prompts.
+Everything you need to know about using this software is included in the prompts presented to you. 
+two things to keep in mind.
+When you are providing the path for the loan data, present the file with a .csv aka data/file.csv
+When you are trying to save the file you only need to present the foulder, aka data/
 
 ---
 
 ## Contributors
 
-In this section, list all the people who contribute to this project. You might want recruiters or potential collaborators to reach you, so include your contact email and, optionally, your LinkedIn or Twitter profile.
+Mark Zarutin at m4rker11@gmail.com
+
+Columbia Fintech Bootcamp organizers
 
 ---
 
 ## License
 
-When you share a project on a repository, especially a public one, it's important to choose the right license to specify what others can and can't with your source code and files. Use this section to include the license you want to use.
+MIT

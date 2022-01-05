@@ -1,0 +1,5 @@
+## if you want to ignore data foulder when uploaded then uncomment line 2
+# data
+_pycache_
+*.pyc
+
