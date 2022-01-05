@@ -17,7 +17,6 @@ This project uses python along with questionary and fire libraries to have a sim
 In order to use this tech you need to run a few commands from LOAN_QUALIFIER_APP foulder
 1. pip install -r requirements.txt
 2. python app.py 
-and then enjoy results.
 
 ---
 
